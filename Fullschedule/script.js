@@ -1,4 +1,4 @@
-﻿const apiURL = "https://streamed.pk/api/matches/all";
+const apiURL = "https://streamed.pk/api/matches/all";
 const matchesBody = document.getElementById("matches-body");
 const matchesTable = document.getElementById("matches-table");
 const loadingDiv = document.getElementById("loading");
@@ -95,7 +95,7 @@ fetch(apiURL)
         tournament: "",
         match: match.title || "-",
         status,
-        url: `https://rmemonads.github.io/streampage2sportsurge/?id=${match.id}`,
+        url: `https://raaj648.github.io/streampage2sportsurge/?id=${match.id}`,
         isTitleMatch: !!titleMatch
       });
     });
@@ -115,13 +115,13 @@ fetch(apiURL)
     // Update live count in button
     document.getElementById("live-count").textContent = liveCount;
 
-    // ✅ Same render + filter functions as before...
+    // ? Same render + filter functions as before...
     function renderMatches(filter) {
       matchesBody.innerHTML = "";
       let filtered = allMatches.filter(m => filter === "all" || m.status === filter);
 
       if (filtered.length === 0) {
-        matchesBody.innerHTML = `<tr><td colspan="5">⚠ No matches available.</td></tr>`;
+        matchesBody.innerHTML = `<tr><td colspan="5">? No matches available.</td></tr>`;
       } else {
         filtered.forEach(m => {
           const badge =
@@ -173,6 +173,6 @@ fetch(apiURL)
     loadingDiv.style.display = "none";
   })
   .catch(err => {
-    loadingDiv.innerHTML = `<p style="color:red;">⚠ Error loading matches</p>`;
+    loadingDiv.innerHTML = `<p style="color:red;">? Error loading matches</p>`;
     console.error(err);
   });

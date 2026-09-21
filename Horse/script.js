@@ -1,4 +1,4 @@
-﻿const apiURL = "https://streamed.pk/api/matches/all";
+const apiURL = "https://streamed.pk/api/matches/all";
 const matchesBody = document.getElementById("matches-body");
 const matchesTable = document.getElementById("matches-table");
 const loadingDiv = document.getElementById("loading");
@@ -78,7 +78,7 @@ fetch(apiURL)
           sport: getCategoryName(match.category) || "-",
           tournament: "",
           match: match.title || "-",
-          url: `https://rmemonads.github.io/streampage2sportsurge/?id=${match.id}`,
+          url: `https://raaj648.github.io/streampage2sportsurge/?id=${match.id}`,
           isTitleMatch: !!titleMatch
         });
       }
@@ -128,11 +128,11 @@ fetch(apiURL)
     matchesTable.style.display = allMatches.length > 0 ? "table" : "none";
 
     if (allMatches.length === 0) {
-      matchesBody.innerHTML = `<tr><td colspan="5">⚠ No matches available.</td></tr>`;
+      matchesBody.innerHTML = `<tr><td colspan="5">? No matches available.</td></tr>`;
       matchesTable.style.display = "table";
     }
   })
   .catch(err => {
-    loadingDiv.innerHTML = `<p style="color:red;">⚠ Error loading matches</p>`;
+    loadingDiv.innerHTML = `<p style="color:red;">? Error loading matches</p>`;
     console.error(err);
   });

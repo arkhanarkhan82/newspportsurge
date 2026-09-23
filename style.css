@@ -953,15 +953,20 @@ section h2 {
 .league-grid ul {
   list-style: none;
   margin: 0;
-  padding: 0;
+  padding: 0 0 6px;
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
+  overflow-x: auto;
   gap: 8px;
-  justify-content: center;
+  justify-content: flex-start;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
 }
 
 .league-grid a {
   display: inline-block;
+  flex-shrink: 0;
+  white-space: nowrap;
   padding: 7px 12px;
   background: #1e1e24;
   border: 1px solid rgba(255, 94, 0, 0.25);
@@ -977,6 +982,12 @@ section h2 {
 .league-grid a:focus {
   border-color: rgba(255, 94, 0, 0.65);
   color: #ff5e00;
+}
+
+.league-grid a.active {
+  background: #ff5e00;
+  border-color: #ff5e00;
+  color: #fff;
 }
 
 @media (max-width: 480px) {

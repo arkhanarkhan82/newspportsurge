@@ -41,13 +41,14 @@
   }
 
   var path = window.location.pathname.replace(/\/+$/, "") || "/";
-  var links = document.querySelectorAll(".nav-menu a[href], .nav-mobile a[href], .app-link[href]");
+  var links = document.querySelectorAll(".nav-menu a[href], .nav-mobile a[href], .app-link[href], .league-grid a[href]");
   for (var i = 0; i < links.length; i++) {
     var href = links[i].getAttribute("href");
     if (!href || href.charAt(0) !== "/") continue;
     var norm = href.replace(/\/+$/, "") || "/";
     if (norm === path) {
       links[i].classList.add("active");
+      links[i].setAttribute("aria-current", "page");
     }
   }
 })();

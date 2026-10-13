@@ -412,76 +412,87 @@ Are you a passionate sports fan looking for the best platform to watch your favo
 
 
 
-<!-- VVStreams Android App Promotion Popup -->
-<div id="appPromoOverlay" class="app-promo-overlay"
-     aria-hidden="true">
+
+<!-- VVStreams Responsive App Promotion Popup -->
+<div id="appPromoOverlay" class="app-promo-overlay" aria-hidden="true">
   <section class="app-promo-modal"
            role="dialog"
            aria-modal="true"
            aria-labelledby="appPromoTitle">
 
     <button class="app-promo-close" id="appPromoClose"
-            aria-label="Close popup" type="button">&times;</button>
+            type="button" aria-label="Close popup">&times;</button>
 
-    <div class="app-promo-badge">
-      <span class="app-promo-dot"></span>
-      ANDROID APP AVAILABLE
+    <!-- Left: Branding and message -->
+    <div class="app-promo-main">
+      <div class="app-promo-badge">
+        <span class="app-promo-dot"></span>
+        ANDROID APP AVAILABLE
+      </div>
+
+      <img
+        class="app-promo-logo"
+        src="/app-download.webp"
+        alt="VVStreams Android App"
+        width="88"
+        height="88"
+      >
+
+      <h2 id="appPromoTitle">
+        Your Streams.<br>
+        <span>Zero Ads.</span>
+      </h2>
+
+      <p class="app-promo-description">
+        Make your streaming experience better with our
+        Android app. More action, fewer interruptions.
+      </p>
     </div>
 
-    <img
-      class="app-promo-logo"
-      src="/app-download.webp"
-      alt="VVStreams Android App"
-      width="100"
-      height="100"
-    >
-
-    <h2 id="appPromoTitle">
-      Your Streams.<br>
-      <span>Zero Ads.</span>
-    </h2>
-
-    <p class="app-promo-description">
-      Upgrade your streaming experience. Get our Android
-      app for an ad-free experience and enjoy more action
-      with fewer interruptions.
-    </p>
-
-    <div class="app-promo-features">
-      <div>
-        <span class="app-promo-check">✓</span>
-        Ad-free app experience
+    <!-- Right: Benefits and download -->
+    <div class="app-promo-action">
+      <div class="app-promo-features">
+        <div>
+          <span class="app-promo-check">✓</span>
+          <span>Ad-free app experience</span>
+        </div>
+        <div>
+          <span class="app-promo-check">✓</span>
+          <span>Made for Android</span>
+        </div>
+        <div>
+          <span class="app-promo-check">✓</span>
+          <span>Free to download</span>
+        </div>
       </div>
-      <div>
-        <span class="app-promo-check">✓</span>
-        Designed for Android
-      </div>
+
+      <a class="app-promo-download"
+         href="https://github.com/arkhan66648/VVSTreamsdownload/releases/download/v3.1/VVStreams-3.1.apk">
+        <svg width="20" height="20" viewBox="0 0 24 24"
+             fill="none" aria-hidden="true">
+          <path d="M12 3v12m-5-5 5 5 5-5M4 17v3h16v-3"
+                stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        DOWNLOAD APP
+      </a>
+
+      <p class="app-promo-note">
+        <span class="app-promo-android-dot"></span>
+        Android APK · Free download
+      </p>
+
+      <button class="app-promo-later" id="appPromoLater"
+              type="button">
+        Maybe later
+      </button>
     </div>
-
-    <a class="app-promo-download"
-       href="https://github.com/arkhan66648/VVSTreamsdownload/releases/download/v3.1/VVStreams-3.1.apk">
-      <svg width="21" height="21" viewBox="0 0 24 24"
-           fill="none" aria-hidden="true">
-        <path d="M12 3v12m-5-5 5 5 5-5M4 17v3h16v-3"
-              stroke="currentColor" stroke-width="2"
-              stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
-      DOWNLOAD THE APP
-    </a>
-
-    <p class="app-promo-note">
-      Free to download · Android
-    </p>
-
-    <button class="app-promo-later" id="appPromoLater"
-            type="button">
-      Maybe later
-    </button>
 
   </section>
 </div>
 
 <style>
+/* ===== Overlay ===== */
 .app-promo-overlay,
 .app-promo-overlay * {
   box-sizing: border-box;
@@ -494,14 +505,14 @@ Are you a passionate sports fan looking for the best platform to watch your favo
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 18px;
+  padding: 16px;
   background: rgba(0, 0, 0, .78);
-  backdrop-filter: blur(7px);
-  -webkit-backdrop-filter: blur(7px);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
-  transition: opacity .28s ease, visibility .28s ease;
+  transition: opacity .25s ease, visibility .25s ease;
 }
 
 .app-promo-overlay.is-visible {
@@ -510,46 +521,51 @@ Are you a passionate sports fan looking for the best platform to watch your favo
   pointer-events: auto;
 }
 
+/* ===== Main modal: compact desktop layout ===== */
 .app-promo-modal {
   position: relative;
+  display: grid;
+  grid-template-columns: 1.1fr .9fr;
+  align-items: center;
+  gap: 28px;
   width: 100%;
-  max-width: 410px;
-  max-height: calc(100vh - 36px);
-  max-height: calc(100dvh - 36px);
-  overflow-y: auto;
-  padding: 32px 27px 24px;
-  text-align: center;
+  max-width: 650px;
+  padding: 30px;
+  overflow: hidden;
   color: #f7f7fa;
   background:
-    radial-gradient(ellipse at 50% 0%,
-      rgba(226, 31, 39, .18), transparent 55%),
+    radial-gradient(ellipse at 12% 0%,
+      rgba(230, 35, 44, .17), transparent 45%),
     #101013;
-  border: 1px solid rgba(255, 255, 255, .1);
-  border-radius: 23px;
-  box-shadow: 0 25px 90px rgba(0, 0, 0, .6);
-  transform: translateY(18px) scale(.97);
-  transition: transform .28s ease;
+  border: 1px solid rgba(255, 255, 255, .11);
+  border-radius: 22px;
+  box-shadow: 0 24px 80px rgba(0, 0, 0, .55);
   font-family: inherit;
+  transform: translateY(12px) scale(.98);
+  transition: transform .25s ease;
 }
 
 .app-promo-overlay.is-visible .app-promo-modal {
   transform: translateY(0) scale(1);
 }
 
+/* ===== Close button ===== */
 .app-promo-close {
   position: absolute;
   top: 12px;
-  right: 14px;
+  right: 12px;
+  z-index: 2;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 34px;
-  height: 34px;
+  width: 30px;
+  height: 30px;
+  padding: 0;
   border: 0;
   border-radius: 50%;
   background: rgba(255, 255, 255, .08);
-  color: #c5c5cb;
-  font-size: 26px;
+  color: #c6c6cd;
+  font-size: 23px;
   line-height: 1;
   cursor: pointer;
 }
@@ -559,45 +575,51 @@ Are you a passionate sports fan looking for the best platform to watch your favo
   color: #fff;
 }
 
+/* ===== Left content ===== */
+.app-promo-main {
+  min-width: 0;
+}
+
 .app-promo-badge {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  padding: 8px 12px;
-  border: 1px solid rgba(255, 58, 64, .3);
+  gap: 7px;
+  padding: 7px 10px;
+  border: 1px solid rgba(255, 65, 73, .3);
   border-radius: 30px;
-  background: rgba(255, 45, 52, .08);
-  color: #ff686d;
-  font-size: 10px;
+  background: rgba(255, 48, 57, .08);
+  color: #ff6a70;
+  font-size: 9px;
   font-weight: 800;
-  letter-spacing: 1.15px;
+  letter-spacing: 1px;
 }
 
 .app-promo-dot {
-  width: 7px;
-  height: 7px;
+  width: 6px;
+  height: 6px;
+  flex: 0 0 6px;
   border-radius: 50%;
-  background: #ff3b42;
-  box-shadow: 0 0 10px rgba(255, 59, 66, .8);
+  background: #ff4149;
+  box-shadow: 0 0 9px rgba(255, 65, 73, .7);
 }
 
 .app-promo-logo {
   display: block;
-  width: 96px;
-  height: 96px;
+  width: 78px;
+  height: 78px;
+  margin: 19px 0 15px;
   object-fit: contain;
-  margin: 22px auto 18px;
-  border-radius: 20px;
-  filter: drop-shadow(0 8px 18px rgba(230, 30, 40, .2));
+  border-radius: 17px;
+  filter: drop-shadow(0 6px 14px rgba(230, 30, 40, .2));
 }
 
 .app-promo-modal h2 {
   margin: 0;
   color: #fff;
-  font-size: clamp(27px, 7vw, 34px);
+  font-size: clamp(27px, 3.4vw, 35px);
   font-weight: 850;
-  line-height: 1.17;
-  letter-spacing: -.9px;
+  line-height: 1.12;
+  letter-spacing: -1px;
 }
 
 .app-promo-modal h2 span {
@@ -605,83 +627,100 @@ Are you a passionate sports fan looking for the best platform to watch your favo
 }
 
 .app-promo-description {
-  max-width: 310px;
-  margin: 15px auto 20px;
+  max-width: 290px;
+  margin: 12px 0 0;
   color: #aaaab4;
-  font-size: 14px;
-  line-height: 1.7;
+  font-size: 13px;
+  line-height: 1.65;
+}
+
+/* ===== Right content ===== */
+.app-promo-action {
+  min-width: 0;
+  padding-top: 20px;
 }
 
 .app-promo-features {
   display: grid;
-  gap: 11px;
-  width: fit-content;
-  max-width: 100%;
-  margin: 0 auto 24px;
-  text-align: left;
+  gap: 15px;
+  margin-bottom: 24px;
 }
 
 .app-promo-features > div {
   display: flex;
   align-items: center;
   gap: 10px;
-  color: #e4e4e9;
-  font-size: 13px;
+  color: #e7e7eb;
+  font-size: 12px;
+  line-height: 1.4;
 }
 
 .app-promo-check {
   display: inline-flex;
-  flex: 0 0 20px;
-  width: 20px;
-  height: 20px;
   align-items: center;
   justify-content: center;
+  flex: 0 0 21px;
+  width: 21px;
+  height: 21px;
   border-radius: 50%;
-  background: rgba(255, 59, 66, .14);
-  color: #ff555c;
+  background: rgba(255, 60, 68, .13);
+  color: #ff5a61;
   font-size: 13px;
   font-weight: 800;
 }
 
 .app-promo-download {
   display: flex;
-  min-height: 54px;
   align-items: center;
   justify-content: center;
-  gap: 10px;
-  padding: 15px 14px;
+  gap: 9px;
+  width: 100%;
+  min-height: 49px;
+  padding: 13px 10px;
   border: 1px solid #ff555c;
-  border-radius: 12px;
-  background: linear-gradient(135deg, #ff4148, #d71925);
-  box-shadow: 0 7px 22px rgba(228, 30, 40, .23);
+  border-radius: 10px;
+  background: linear-gradient(135deg, #ff424a, #d71925);
+  box-shadow: 0 6px 18px rgba(228, 30, 40, .2);
   color: #fff !important;
+  text-align: center;
   text-decoration: none !important;
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 850;
-  letter-spacing: .5px;
-  transition: transform .2s ease, filter .2s ease;
+  letter-spacing: .4px;
+  transition: filter .2s ease, transform .2s ease;
 }
 
 .app-promo-download:hover {
-  transform: translateY(-2px);
   filter: brightness(1.1);
+  transform: translateY(-1px);
 }
 
 .app-promo-note {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
   margin: 12px 0 0;
-  color: #898993;
-  font-size: 11px;
+  color: #93939d;
+  font-size: 10px;
+}
+
+.app-promo-android-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #53cf88;
 }
 
 .app-promo-later {
-  display: inline-block;
-  margin-top: 16px;
-  padding: 7px 12px;
+  display: block;
+  margin: 12px auto 0;
+  padding: 5px 10px;
   border: 0;
   background: transparent;
-  color: #aaaab4;
+  color: #a3a3ad;
   font: inherit;
-  font-size: 12px;
+  font-size: 11px;
   cursor: pointer;
 }
 
@@ -689,41 +728,126 @@ Are you a passionate sports fan looking for the best platform to watch your favo
   color: #fff;
 }
 
-@media (max-width: 420px) {
+/* ===== Small desktop / tablet ===== */
+@media (min-width: 601px) and (max-width: 760px) {
   .app-promo-modal {
-    padding: 29px 21px 20px;
-    border-radius: 20px;
-  }
-
-  .app-promo-logo {
-    width: 82px;
-    height: 82px;
-    margin-top: 19px;
-  }
-
-  .app-promo-description {
-    font-size: 13px;
-  }
-}
-
-@media (max-height: 600px) {
-  .app-promo-modal {
-    padding-top: 24px;
-    padding-bottom: 18px;
+    gap: 20px;
+    padding: 25px;
   }
 
   .app-promo-logo {
     width: 65px;
     height: 65px;
-    margin: 12px auto;
-  }
-
-  .app-promo-description {
-    margin: 10px auto 14px;
+    margin: 15px 0 13px;
   }
 
   .app-promo-features {
-    margin-bottom: 16px;
+    gap: 12px;
+    margin-bottom: 19px;
+  }
+}
+
+/* ===== Mobile: centered, stacked layout ===== */
+@media (max-width: 600px) {
+  .app-promo-overlay {
+    padding: 14px;
+  }
+
+  .app-promo-modal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+    width: 100%;
+    max-width: 370px;
+    max-height: calc(100vh - 28px);
+    max-height: calc(100dvh - 28px);
+    overflow-y: auto;
+    padding: 25px 22px 18px;
+    border-radius: 20px;
+    text-align: center;
+  }
+
+  .app-promo-main,
+  .app-promo-action {
+    width: 100%;
+  }
+
+  .app-promo-badge {
+    font-size: 9px;
+  }
+
+  .app-promo-logo {
+    width: 76px;
+    height: 76px;
+    margin: 15px auto 13px;
+  }
+
+  .app-promo-modal h2 {
+    font-size: 30px;
+    line-height: 1.12;
+  }
+
+  .app-promo-description {
+    max-width: 300px;
+    margin: 10px auto 17px;
+    font-size: 12px;
+    line-height: 1.55;
+  }
+
+  .app-promo-action {
+    padding-top: 0;
+  }
+
+  .app-promo-features {
+    gap: 10px;
+    width: fit-content;
+    max-width: 100%;
+    margin: 0 auto 19px;
+    text-align: left;
+  }
+
+  .app-promo-features > div {
+    font-size: 12px;
+  }
+
+  .app-promo-download {
+    min-height: 48px;
+  }
+
+  .app-promo-note {
+    margin-top: 10px;
+  }
+
+  .app-promo-later {
+    margin-top: 10px;
+  }
+}
+
+/* ===== Very short screens ===== */
+@media (max-height: 500px) {
+  .app-promo-modal {
+    gap: 16px;
+    padding: 20px;
+  }
+
+  .app-promo-logo {
+    width: 55px;
+    height: 55px;
+    margin: 10px 0;
+  }
+
+  .app-promo-description {
+    margin-top: 8px;
+  }
+
+  .app-promo-features {
+    gap: 9px;
+    margin-bottom: 14px;
+  }
+
+  .app-promo-action {
+    padding-top: 12px;
   }
 }
 
@@ -746,7 +870,7 @@ Are you a passionate sports fan looking for the best platform to watch your favo
 
   if (!overlay || !closeBtn || !laterBtn) return;
 
-  // SETTINGS
+  // Popup settings
   const DISPLAY_DELAY_MS = 3000;
   const FREQUENCY_MS = 24 * 60 * 60 * 1000;
   const STORAGE_KEY = "vvstreams_app_promo_last_shown";
@@ -762,17 +886,12 @@ Are you a passionate sports fan looking for the best platform to watch your favo
   }
 
   function showPopup() {
-    if (Date.now() - getLastShown() < FREQUENCY_MS) {
-      return;
-    }
+    if (Date.now() - getLastShown() < FREQUENCY_MS) return;
 
-    // Record display time so page navigation or reloads
-    // do not trigger another popup within 24 hours.
+    // Save the display time immediately to prevent repeat popups.
     try {
       localStorage.setItem(STORAGE_KEY, String(Date.now()));
-    } catch (error) {
-      // Storage may be unavailable in some browsers.
-    }
+    } catch (error) {}
 
     overlay.classList.add("is-visible");
     overlay.setAttribute("aria-hidden", "false");
@@ -785,7 +904,7 @@ Are you a passionate sports fan looking for the best platform to watch your favo
     isOpen = false;
   }
 
-  // Display 3 seconds after page load, if eligible.
+  // Show after 3 seconds if the visitor is eligible.
   if (Date.now() - getLastShown() >= FREQUENCY_MS) {
     window.setTimeout(showPopup, DISPLAY_DELAY_MS);
   }
@@ -794,18 +913,15 @@ Are you a passionate sports fan looking for the best platform to watch your favo
   laterBtn.addEventListener("click", hidePopup);
 
   overlay.addEventListener("click", function (event) {
-    if (event.target === overlay) {
-      hidePopup();
-    }
+    if (event.target === overlay) hidePopup();
   });
 
   document.addEventListener("keydown", function (event) {
-    if (event.key === "Escape" && isOpen) {
-      hidePopup();
-    }
+    if (event.key === "Escape" && isOpen) hidePopup();
   });
 })();
 </script>
+
 
 	
 </body>
